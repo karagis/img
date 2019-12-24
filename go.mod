@@ -11,7 +11,7 @@ require (
 	github.com/cyphar/filepath-securejoin v0.2.2
 	github.com/docker/cli v0.0.0-20190321234815-f40f9c240ab0
 	github.com/docker/distribution v2.7.1-0.20190205005809-0d3efadf0154+incompatible
-	github.com/docker/docker e7b5f7dbe98c
+	github.com/docker/docker v1.14.0
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.3.3
 	github.com/genuinetools/reg v0.16.0
@@ -21,7 +21,7 @@ require (
 	github.com/mitchellh/hashstructure v1.0.0 // indirect
 	github.com/moby/buildkit v0.5.1
 	github.com/opencontainers/image-spec v1.0.1
-	github.com/opencontainers/runc v0.0.0
+	github.com/opencontainers/runc v1.0.1-0.20190307181833-2b18fe1d885e
 	github.com/opencontainers/runtime-spec v1.0.1 // indirect
 	github.com/opentracing-contrib/go-stdlib v0.0.0-20180702182724-07a764486eb1 // indirect
 	github.com/opentracing/opentracing-go v1.0.2 // indirect
