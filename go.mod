@@ -19,7 +19,7 @@ require (
 	github.com/gogo/googleapis v1.1.0 // indirect
 	github.com/hashicorp/golang-lru v0.5.0 // indirect
 	github.com/mitchellh/hashstructure v1.0.0 // indirect
-	github.com/moby/buildkit v0.5.1
+	github.com/moby/buildkit v0.6.3
 	github.com/opencontainers/image-spec v1.0.1
 	github.com/opencontainers/runc v1.0.0-rc8.0.20190621203724-f4982d86f7fd
 	github.com/opencontainers/runtime-spec v1.0.1 // indirect
