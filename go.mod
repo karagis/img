@@ -6,7 +6,7 @@ replace github.com/jaguilar/vt100 => github.com/tonistiigi/vt100 v0.0.0-20190402
 
 require (
 	github.com/containerd/console v0.0.0-20181022165439-0650fd9eeb50
-	github.com/containerd/containerd v1.3.0
+	github.com/containerd/containerd v1.3.2
 	github.com/containerd/go-runc v0.0.0-20180907222934-5a6d9f37cfa3
 	github.com/cyphar/filepath-securejoin v0.2.2
 	github.com/docker/cli v0.0.0-20190321234815-f40f9c240ab0
