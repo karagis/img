@@ -21,7 +21,7 @@ require (
 	github.com/mitchellh/hashstructure v1.0.0 // indirect
 	github.com/moby/buildkit v0.5.1
 	github.com/opencontainers/image-spec v1.0.1
-	github.com/opencontainers/runc v1.0.1
+	github.com/opencontainers/runc v1.0.0
 	github.com/opencontainers/runtime-spec v1.0.1 // indirect
 	github.com/opentracing-contrib/go-stdlib v0.0.0-20180702182724-07a764486eb1 // indirect
 	github.com/opentracing/opentracing-go v1.0.2 // indirect
