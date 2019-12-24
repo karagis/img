@@ -1,0 +1,44 @@
+language: go
+dist: xenial
+notifications:
+  email: true
+go:
+  - 1.11.x
+addons:
+  apt:
+    packages:
+      - libseccomp-dev
+      - parallel
+      - uidmap
+before_install:
+  - go get golang.org/x/lint/golint
+  - go get honnef.co/go/tools/cmd/staticcheck
+  - go get -u github.com/go-bindata/go-bindata/...
+jobs:
+  include:
+    - script: make all
+    - stage: Run Test Coverage
+      script: make cover
+      after_success: bash <(curl -s https://codecov.io/bash)
+    - stage: Run e2e Tests
+      script:
+        - make install
+        - ./contrib/e2e-dockerfiles-build-test.sh
+      env:
+        - STATE_DIR=$HOME/img
+    - stage: Build Release
+      script:
+        - make release
+      before_deploy:
+        - echo "Deploying to GitHub releases ..."
+      deploy:
+        provider: releases
+        file:
+          - cross/img-linux-amd64
+          - cross/img-linux-amd64.md5
+          - cross/img-linux-amd64.sha256
+        skip_cleanup: true
+        on:
+          tags: true
+        api_key:
+          secure: "cJ0iJBpp32Ro6xbr6rrZHjBcYOJ7SPBr3kMlWg9o3VG0ScpQxQaGrYpZ9ozwbhbswmaznRR+RibsHjmvhy+KZmW64fw/NKD+p2c3CZsNceqYIFAvScUVResDd5xzSy9y3yxic8RKJDiLacqlRHnGb4J7LcSN6+6qfQGxPrV6neP7wAWj6dssS9FDiAlCCIYfRf11v6Ku4is+yhiJ5pmrL4XfgCyGX20Donb3B02ail86qoJLljngUjH1+wUW6cHChcz98yx1m5q07AP5RmH2hBwQTzFwIFE+pc5KcvqsQOAOlvydeVBNan3Qf1SEgntsUtxvZmmRChByNeVdE15065XNnIZljZUwEoAMosbOo0w/rojrSzfy4Pqk/sgDmJHsQrkFLPZCNOggP1JIKbu0qCMwTVAbWqp8gyByptDOeRFzkMWc5UmHNy4f995//tTeOgMROllm9tsA6wCAdyXa6U/c0STxD3cbKNRtbHNtyVJD6QJydXr7I1KD741YCF+RyZOh3HWtp0MLViif+PGzTBGZkEl2SL4tPdXQhK0INXl8VNRTO7vk1m+5TdqHzG0JetfvtA93YnLRVL0C5uBPycJGh91GfPsNUBbXme4Ns8dTQrUWWvWrLeKraOZ1kq9xZcYJsLthmdo44AhveQ4LxORGQUFEBfXaNaGI7TN8MvA="
